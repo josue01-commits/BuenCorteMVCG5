@@ -47,4 +47,8 @@ public class clientes {
     public void setTelefono_cli(String telefono_cli) {
         this.telefono_cli = telefono_cli;
     }
+    @Override
+    public String toString(){
+        return nombre_cli +"";
+    }
 }

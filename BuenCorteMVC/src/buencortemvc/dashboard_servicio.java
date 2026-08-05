@@ -64,6 +64,8 @@ public class dashboard_servicio extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblServicio);
 
+        txtNombreServi.addActionListener(this::txtNombreServiActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,6 +129,10 @@ control.editarServicio();
     servicioController control = new servicioController(this);
 control.eliminarServicio();
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtNombreServiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreServiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreServiActionPerformed
 
     /**
      * @param args the command line arguments

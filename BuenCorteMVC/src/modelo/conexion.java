@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @author HP
  */
 public class conexion {
-    private static final String URL="jdbc:mysql://localhost:3306/peluqueria_trab";
+    private static final String URL="jdbc:mysql://localhost:3306/proyecto final";
     private static final String USER="root";
     private static final String PASSWORD="";
     private Connection con;

@@ -5,6 +5,7 @@
 package buencortemvc;
 
 import javax.swing.JOptionPane;
+import controlador.citasController;
 
 /**
  *
@@ -32,6 +33,7 @@ public class menuOpciones extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnGestionCli = new javax.swing.JButton();
+        btnGestionCitas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +43,10 @@ public class menuOpciones extends javax.swing.JFrame {
         btnGestionCli.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnGestionCli.setText("GESTION DE CLIENTES");
         btnGestionCli.addActionListener(this::btnGestionCliActionPerformed);
+
+        btnGestionCitas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnGestionCitas.setText("GESTION DE CITAS");
+        btnGestionCitas.addActionListener(this::btnGestionCitasActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,7 +58,9 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addGap(82, 82, 82))
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
-                .addComponent(btnGestionCli)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGestionCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -62,7 +70,9 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGestionCli)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(btnGestionCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
 
         pack();
@@ -75,6 +85,14 @@ public class menuOpciones extends javax.swing.JFrame {
         clientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGestionCliActionPerformed
+
+    private void btnGestionCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionCitasActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Gestion de citas");
+        dashboard_citas vista = new dashboard_citas();
+        citasController control = new citasController(vista);
+        vista.setVisible(true);
+    }//GEN-LAST:event_btnGestionCitasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,6 +120,7 @@ public class menuOpciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGestionCitas;
     public javax.swing.JButton btnGestionCli;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
