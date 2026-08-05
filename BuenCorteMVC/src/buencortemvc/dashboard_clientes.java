@@ -83,6 +83,7 @@ public class dashboard_clientes extends javax.swing.JFrame {
         btnActualizarCli.addActionListener(this::btnActualizarCliActionPerformed);
 
         btnRegresarCli.setText("REGRESAR");
+        btnRegresarCli.addActionListener(this::btnRegresarCliActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,6 +181,10 @@ public class dashboard_clientes extends javax.swing.JFrame {
         clientesController c=new clientesController(this);
         c.editarCliente();
     }//GEN-LAST:event_btnActualizarCliActionPerformed
+
+    private void btnRegresarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarCliActionPerformed
 
     /**
      * @param args the command line arguments
