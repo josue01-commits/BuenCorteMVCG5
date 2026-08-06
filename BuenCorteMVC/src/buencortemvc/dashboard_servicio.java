@@ -68,6 +68,7 @@ public class dashboard_servicio extends javax.swing.JFrame {
         txtNombreServi.addActionListener(this::txtNombreServiActionPerformed);
 
         btnRegresarSer.setText("REGRESAR");
+        btnRegresarSer.addActionListener(this::btnRegresarSerActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,6 +142,12 @@ control.eliminarServicio();
     private void txtNombreServiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreServiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreServiActionPerformed
+
+    private void btnRegresarSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarSerActionPerformed
+        // TODO add your handling code here:
+        new menuOpciones().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarSerActionPerformed
 
     /**
      * @param args the command line arguments

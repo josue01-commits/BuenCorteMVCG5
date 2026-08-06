@@ -23,7 +23,7 @@ public class empleadosDao {
     // INSERTAR
     public Boolean insertarEmpleado(empleados e) {
 
-        String sql = "INSERT INTO empleados(nombre, apellido, cargo) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO empleados(nombre_emple, apellido_emple, cargo_emple) VALUES(?, ?, ?)";
 
         try {
 
@@ -87,7 +87,7 @@ public class empleadosDao {
     // ELIMINAR
     public Boolean eliminarEmpleado(int id) {
 
-        String sql = "DELETE FROM empleados WHERE id_empleado=?";
+        String sql = "DELETE FROM empleados WHERE id_emple=?";
 
         try {
 
@@ -112,7 +112,7 @@ public class empleadosDao {
     // ACTUALIZAR
     public Boolean actualizarEmpleado(empleados e) {
 
-        String sql = "UPDATE empleados SET nombre=?, apellido=?, cargo=? WHERE id_empleado=?";
+        String sql = "UPDATE empleados SET nombre_emple=?, apellido_emple=?, cargo_emple=? WHERE id_emple=?";
 
         try {
 

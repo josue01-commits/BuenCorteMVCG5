@@ -28,15 +28,15 @@ public class empleadosController {
 
         empleados e = new empleados();
 
-        e.setNombre(vista.txtNombreEmp.getText());
-        e.setApellido(vista.txtApellidoEmp.getText());
-        e.setCargo(vista.txtCargoEmp.getText());
+        e.setNombre(vista.txtNombreEmple.getText());
+        e.setApellido(vista.txtApellidoEmple.getText());
+        e.setCargo(vista.txtCargoEmple.getText());
 
         if (dao.insertarEmpleado(e)) {
 
             JOptionPane.showMessageDialog(null, "Empleado registrado.");
 
-            listarempleados();
+            listarEmpleados();
 
             limpiar();
 
@@ -49,31 +49,21 @@ public class empleadosController {
     }
 
     // LISTAR
-    public void listarempleados() {
-
-        DefaultTableModel modelo = (DefaultTableModel) vista.jTable1.getModel();
-
+//    
+    public void listarEmpleados(){
+        List<empleados>listEmple=dao.listarEmpleado();
+        DefaultTableModel modelo=(DefaultTableModel)vista.tblEmpleados.getModel();
         modelo.setRowCount(0);
-
-        List<empleados> lista = dao.listarEmpleado();
-
-        for (empleados e : lista) {
-
-            modelo.addRow(new Object[]{
-                e.getId(),
-                e.getNombre(),
-                e.getApellido(),
-                e.getCargo()
-            });
-
+        for(empleados e:listEmple){
+            Object[]fila={e.getId(), e.getNombre(), e.getApellido(), e.getCargo()};
+            modelo.addRow(fila);
         }
-
     }
 
     // ELIMINAR EMPLEADO
     public void eliminarEmpleados() {
 
-        int fila = vista.jTable1.getSelectedRow();
+        int fila = vista.tblEmpleados.getSelectedRow();
 
         if (fila == -1) {
 
@@ -82,13 +72,13 @@ public class empleadosController {
 
         }
 
-        int id = Integer.parseInt(vista.jTable1.getValueAt(fila, 0).toString());
+        int id = Integer.parseInt(vista.tblEmpleados.getValueAt(fila, 0).toString());
 
         if (dao.eliminarEmpleado(id)) {
 
             JOptionPane.showMessageDialog(null, "Empleado eliminado.");
 
-            listarempleados();
+            listarEmpleados();
 
             limpiar();
 
@@ -103,7 +93,7 @@ public class empleadosController {
     // EDITAR
     public void editarEmpleados() {
 
-       int fila = vista.jTable1.getSelectedRow();
+       int fila = vista.tblEmpleados.getSelectedRow();
 
         if (fila == -1) {
 
@@ -114,16 +104,16 @@ public class empleadosController {
 
         empleados e = new empleados();
 
-        e.setId(Integer.parseInt(vista.jTable1.getValueAt(fila, 0).toString()));
-        e.setNombre(vista.txtNombreEmp.getText());
-        e.setApellido(vista.txtApellidoEmp.getText());
-        e.setCargo(vista.txtCargoEmp.getText());
+        e.setId(Integer.parseInt(vista.tblEmpleados.getValueAt(fila, 0).toString()));
+        e.setNombre(vista.txtNombreEmple.getText());
+        e.setApellido(vista.txtApellidoEmple.getText());
+        e.setCargo(vista.txtCargoEmple.getText());
 
         if (dao.actualizarEmpleado(e)) {
 
             JOptionPane.showMessageDialog(null, "Empleado actualizado.");
 
-            listarempleados();
+            listarEmpleados();
 
             limpiar();
 

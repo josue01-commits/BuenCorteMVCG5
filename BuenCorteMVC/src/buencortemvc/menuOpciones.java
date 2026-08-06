@@ -38,6 +38,7 @@ public class menuOpciones extends javax.swing.JFrame {
         btnEmpleadosGe = new javax.swing.JButton();
         btnCitasGe = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +63,9 @@ public class menuOpciones extends javax.swing.JFrame {
 
         jButton2.setText("GESTION SERVICIO");
         jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        btnSalir.setText("SALIIR");
+        btnSalir.addActionListener(this::btnSalirActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +95,10 @@ public class menuOpciones extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(209, 209, 209))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(btnSalir)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +117,9 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,6 +167,11 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
         ser.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0); 
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,6 +203,7 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
     public javax.swing.JButton btnEmpleadosGe;
     public javax.swing.JButton btnGestionCli;
     private javax.swing.JButton btnPagos;
+    public javax.swing.JButton btnSalir;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

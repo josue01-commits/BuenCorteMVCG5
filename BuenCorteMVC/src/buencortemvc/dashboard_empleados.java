@@ -19,7 +19,7 @@ public class dashboard_empleados extends javax.swing.JFrame {
     public dashboard_empleados() {
         initComponents();
         empleadosController c=new empleadosController(this);
-        c.listarempleados();
+        c.listarEmpleados();
     }
 
     /**
@@ -43,10 +43,10 @@ public class dashboard_empleados extends javax.swing.JFrame {
         txtNombreEmp = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        tblEmpleados = new javax.swing.JTable();
+        txtNombreEmple = new javax.swing.JTextField();
+        txtApellidoEmple = new javax.swing.JTextField();
+        txtCargoEmple = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -71,7 +71,7 @@ public class dashboard_empleados extends javax.swing.JFrame {
 
         txtNombreEmp.setText("Nombre");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,7 +82,14 @@ public class dashboard_empleados extends javax.swing.JFrame {
                 "ID", "NOMBRE", "APELLIDO", "CARGO"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmpleadosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblEmpleados);
+
+        txtNombreEmple.addActionListener(this::txtNombreEmpleActionPerformed);
 
         jLabel1.setText("EMPLEADOS");
 
@@ -105,11 +112,11 @@ public class dashboard_empleados extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNombreEmple, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(64, 64, 64)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtApellidoEmple, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCargoEmple, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -143,11 +150,11 @@ public class dashboard_empleados extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNombreEmp)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreEmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnActualizarEmp))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApellidoEmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnInsertarEmp)
                             .addComponent(btnRegresar))
                         .addGap(8, 8, 8))
@@ -162,7 +169,7 @@ public class dashboard_empleados extends javax.swing.JFrame {
                         .addComponent(txtCargoEmp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCargoEmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(362, 362, 362))
@@ -196,6 +203,25 @@ public class dashboard_empleados extends javax.swing.JFrame {
         new menuOpciones().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void tblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseClicked
+        int fila = tblEmpleados.getSelectedRow();
+    if(fila >= 0){
+        // Obtener valores de la tabla
+        String nombre = tblEmpleados.getValueAt(fila, 1).toString();
+        String apellido = tblEmpleados.getValueAt(fila, 2).toString();
+        String cargo = tblEmpleados.getValueAt(fila, 3).toString();
+        
+        // ✅ ASIGNAR los valores a los campos de texto
+        txtNombreEmple.setText(nombre);
+        txtApellidoEmple.setText(apellido);
+        txtCargoEmple.setText(cargo);
+    }
+    }//GEN-LAST:event_tblEmpleadosMouseClicked
+
+    private void txtNombreEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreEmpleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,12 +268,12 @@ public class dashboard_empleados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
-    public javax.swing.JTextField jTextField6;
+    public javax.swing.JTable tblEmpleados;
     public javax.swing.JLabel txtApellidoEmp;
+    public javax.swing.JTextField txtApellidoEmple;
     public javax.swing.JLabel txtCargoEmp;
+    public javax.swing.JTextField txtCargoEmple;
     public javax.swing.JLabel txtNombreEmp;
+    public javax.swing.JTextField txtNombreEmple;
     // End of variables declaration//GEN-END:variables
 }
