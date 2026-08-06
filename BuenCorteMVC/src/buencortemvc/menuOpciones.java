@@ -5,7 +5,7 @@
 package buencortemvc;
 
 import javax.swing.JOptionPane;
-import controlador.citasController;
+
 
 /**
  *
@@ -33,7 +33,7 @@ public class menuOpciones extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnGestionCli = new javax.swing.JButton();
-        btnGestionCitas = new javax.swing.JButton();
+        btnCRUDDetalleCita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,9 +44,8 @@ public class menuOpciones extends javax.swing.JFrame {
         btnGestionCli.setText("GESTION DE CLIENTES");
         btnGestionCli.addActionListener(this::btnGestionCliActionPerformed);
 
-        btnGestionCitas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionCitas.setText("GESTION DE CITAS");
-        btnGestionCitas.addActionListener(this::btnGestionCitasActionPerformed);
+        btnCRUDDetalleCita.setText("GESTION DETALLE CITA");
+        btnCRUDDetalleCita.addActionListener(this::btnCRUDDetalleCitaActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,8 +58,8 @@ public class menuOpciones extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGestionCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGestionCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionCli))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,9 +69,9 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGestionCli)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(btnGestionCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(138, 138, 138)
+                .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -86,13 +85,9 @@ public class menuOpciones extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnGestionCliActionPerformed
 
-    private void btnGestionCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionCitasActionPerformed
+    private void btnCRUDDetalleCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCRUDDetalleCitaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Gestion de citas");
-        dashboard_citas vista = new dashboard_citas();
-        citasController control = new citasController(vista);
-        vista.setVisible(true);
-    }//GEN-LAST:event_btnGestionCitasActionPerformed
+    }//GEN-LAST:event_btnCRUDDetalleCitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,7 +115,7 @@ public class menuOpciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGestionCitas;
+    private javax.swing.JButton btnCRUDDetalleCita;
     public javax.swing.JButton btnGestionCli;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
