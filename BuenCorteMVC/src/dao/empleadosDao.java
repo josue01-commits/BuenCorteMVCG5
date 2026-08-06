@@ -65,10 +65,10 @@ public class empleadosDao {
 
                 empleados e = new empleados();
 
-                e.setId(rs.getInt("id_empleado"));
-                e.setNombre(rs.getString("nombre"));
-                e.setApellido(rs.getString("apellido"));
-                e.setCargo(rs.getString("cargo"));
+                e.setId(rs.getInt("id_emple"));
+                e.setNombre(rs.getString("nombre_emple"));
+                e.setApellido(rs.getString("apellido_emple"));
+                e.setCargo(rs.getString("cargo_emple"));
 
                 listaEmp.add(e);
 
