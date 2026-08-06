@@ -34,6 +34,7 @@ public class menuOpciones extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnGestionCli = new javax.swing.JButton();
         btnCRUDDetalleCita = new javax.swing.JButton();
+        btnPagos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,10 @@ public class menuOpciones extends javax.swing.JFrame {
         btnCRUDDetalleCita.setText("GESTION DETALLE CITA");
         btnCRUDDetalleCita.addActionListener(this::btnCRUDDetalleCitaActionPerformed);
 
+        btnPagos.setText("GESTION DE PAGOS");
+        btnPagos.setActionCommand("GESTION DE PAGOS");
+        btnPagos.addActionListener(this::btnPagosActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,7 +64,8 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGestionCli))
+                    .addComponent(btnGestionCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,7 +75,9 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGestionCli)
-                .addGap(138, 138, 138)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
                 .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -91,6 +99,15 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCRUDDetalleCitaActionPerformed
+
+    private void btnPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagosActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Gestion de pagos");
+        dashboard_pagos pagos = new dashboard_pagos();
+        pagos.setLocationRelativeTo(null);
+        pagos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPagosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,6 +137,7 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCRUDDetalleCita;
     public javax.swing.JButton btnGestionCli;
+    private javax.swing.JButton btnPagos;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
