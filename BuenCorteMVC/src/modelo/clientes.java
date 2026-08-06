@@ -49,6 +49,6 @@ public class clientes {
     }
     @Override
     public String toString(){
-        return nombre_cli +""+apellido_cli;
+        return nombre_cli +"";
     }
 }
