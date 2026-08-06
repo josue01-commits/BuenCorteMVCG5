@@ -37,6 +37,7 @@ public class dashboard_servicio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblServicio = new javax.swing.JTable();
         txtNombreServi = new javax.swing.JTextField();
+        btnRegresarSer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,8 @@ public class dashboard_servicio extends javax.swing.JFrame {
 
         txtNombreServi.addActionListener(this::txtNombreServiActionPerformed);
 
+        btnRegresarSer.setText("REGRESAR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,20 +76,23 @@ public class dashboard_servicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(btnGuardar)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnEditar)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnEliminar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreServi, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNombreServi, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRegresarSer)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGuardar)
+                                .addGap(49, 49, 49)
+                                .addComponent(btnEditar)))
+                        .addGap(39, 39, 39)
+                        .addComponent(btnEliminar)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,7 +104,9 @@ public class dashboard_servicio extends javax.swing.JFrame {
                     .addComponent(txtNombreServi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addGap(92, 92, 92)
+                .addComponent(btnRegresarSer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnEditar)
@@ -163,6 +171,7 @@ control.eliminarServicio();
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnRegresarSer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblServicio;

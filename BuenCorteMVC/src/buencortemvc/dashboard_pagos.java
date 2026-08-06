@@ -207,11 +207,8 @@ public class dashboard_pagos extends javax.swing.JFrame {
 
     private void btnRegresarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarPagoActionPerformed
         // TODO add your handling code here:
-        menuOpciones m = new menuOpciones();
-        m.setLocationRelativeTo(null);
-        m.setVisible(true);
+        new menuOpciones().setVisible(true);
         this.dispose();
-        
     }//GEN-LAST:event_btnRegresarPagoActionPerformed
 
     private void cbxCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCitaActionPerformed

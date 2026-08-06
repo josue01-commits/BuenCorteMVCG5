@@ -184,6 +184,8 @@ public class dashboard_clientes extends javax.swing.JFrame {
 
     private void btnRegresarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarCliActionPerformed
         // TODO add your handling code here:
+        new menuOpciones().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegresarCliActionPerformed
 
     /**

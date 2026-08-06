@@ -35,6 +35,9 @@ public class menuOpciones extends javax.swing.JFrame {
         btnGestionCli = new javax.swing.JButton();
         btnCRUDDetalleCita = new javax.swing.JButton();
         btnPagos = new javax.swing.JButton();
+        btnEmpleadosGe = new javax.swing.JButton();
+        btnCitasGe = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,24 +52,45 @@ public class menuOpciones extends javax.swing.JFrame {
         btnCRUDDetalleCita.addActionListener(this::btnCRUDDetalleCitaActionPerformed);
 
         btnPagos.setText("GESTION DE PAGOS");
-        btnPagos.setActionCommand("GESTION DE PAGOS");
         btnPagos.addActionListener(this::btnPagosActionPerformed);
+
+        btnEmpleadosGe.setText("GESTION EMPLEADOS");
+        btnEmpleadosGe.addActionListener(this::btnEmpleadosGeActionPerformed);
+
+        btnCitasGe.setText("GESTION DE CITA");
+        btnCitasGe.addActionListener(this::btnCitasGeActionPerformed);
+
+        jButton2.setText("GESTION SERVICIO");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGestionCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(btnEmpleadosGe))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(btnCitasGe)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(90, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(82, 82, 82))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGestionCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(209, 209, 209))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,11 +99,17 @@ public class menuOpciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGestionCli)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
+                .addComponent(btnEmpleadosGe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(8, 8, 8)
+                .addComponent(btnCitasGe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCRUDDetalleCita, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +139,24 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
         this.dispose();
     }//GEN-LAST:event_btnPagosActionPerformed
 
+    private void btnEmpleadosGeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosGeActionPerformed
+        // TODO add your handling code here:
+        dashboard_empleados emple=new dashboard_empleados();
+        emple.setVisible(true);
+    }//GEN-LAST:event_btnEmpleadosGeActionPerformed
+
+    private void btnCitasGeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCitasGeActionPerformed
+        // TODO add your handling code here:
+        dashboard_citas cit=new dashboard_citas();
+        cit.setVisible(true);
+    }//GEN-LAST:event_btnCitasGeActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dashboard_servicio ser=new dashboard_servicio();
+        ser.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -136,8 +184,11 @@ dashboard_detalleCita detalleCita = new dashboard_detalleCita();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCRUDDetalleCita;
+    public javax.swing.JButton btnCitasGe;
+    public javax.swing.JButton btnEmpleadosGe;
     public javax.swing.JButton btnGestionCli;
     private javax.swing.JButton btnPagos;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

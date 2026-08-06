@@ -44,24 +44,26 @@ public class dashboard_citas extends javax.swing.JFrame {
         btnIngresarCi = new javax.swing.JButton();
         btnEliminarCi = new javax.swing.JButton();
         btnActualizarCi = new javax.swing.JButton();
+        btnRegresarCi = new javax.swing.JButton();
 
         jToggleButton2.setText("jToggleButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("MENU CITAS");
 
         cbxEstadoCi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        cbxEstadoCi.addActionListener(this::cbxEstadoCiActionPerformed);
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "FECHA", "HORA", "ESTADO", "CLIENTE", "EMPLEADO"
             }
         ));
         tblCitas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,30 +82,33 @@ public class dashboard_citas extends javax.swing.JFrame {
         btnActualizarCi.setText("ACTUALIZAR");
         btnActualizarCi.addActionListener(this::btnActualizarCiActionPerformed);
 
+        btnRegresarCi.setText("REGRESAR");
+        btnRegresarCi.addActionListener(this::btnRegresarCiActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cbxClientesCi, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxEstadoCi, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtHoraCi, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(171, 171, 171)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txtFechaCi, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(cbxEmpleadosCi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(118, 118, 118)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtHoraCi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(3, 3, 3))
+                        .addComponent(txtFechaCi, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(cbxEstadoCi, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxClientesCi, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxEmpleadosCi, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnIngresarCi)
                     .addComponent(btnEliminarCi)
-                    .addComponent(btnActualizarCi))
+                    .addComponent(btnActualizarCi)
+                    .addComponent(btnRegresarCi))
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -132,7 +137,9 @@ public class dashboard_citas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminarCi)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizarCi)))
+                        .addComponent(btnActualizarCi)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegresarCi)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -161,6 +168,16 @@ public class dashboard_citas extends javax.swing.JFrame {
         controlador.actualizarCita();
         controlador.eliminarCita();
     }//GEN-LAST:event_btnActualizarCiActionPerformed
+
+    private void cbxEstadoCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstadoCiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEstadoCiActionPerformed
+
+    private void btnRegresarCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarCiActionPerformed
+        // TODO add your handling code here:
+        new menuOpciones().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarCiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +208,7 @@ public class dashboard_citas extends javax.swing.JFrame {
     public javax.swing.JButton btnActualizarCi;
     public javax.swing.JButton btnEliminarCi;
     public javax.swing.JButton btnIngresarCi;
+    public javax.swing.JButton btnRegresarCi;
     public javax.swing.JComboBox<String> cbxClientesCi;
     public javax.swing.JComboBox<String> cbxEmpleadosCi;
     public javax.swing.JComboBox<String> cbxEstadoCi;
