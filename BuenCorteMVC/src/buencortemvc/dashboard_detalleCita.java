@@ -3,6 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package buencortemvc;
+import controlador.detalleCitaController;
+import dao.citasDAO;
+import dao.servicioDAO;
+import modelo.detalleCita;
+import modelo.citas;
+import modelo.servicio;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
@@ -11,12 +20,18 @@ package buencortemvc;
 public class dashboard_detalleCita extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(dashboard_detalleCita.class.getName());
-
+private detalleCitaController controller = new detalleCitaController();
+private citasDAO citasDao = new citasDAO();
+private servicioDAO servicioDao = new servicioDAO();
+private int idSeleccionado = 0;
     /**
      * Creates new form dashboard_detalleCita
      */
     public dashboard_detalleCita() {
         initComponents();
+        cargarComboCitas();
+        cargarComboServicios();
+        cargarTabla();
     }
 
     /**
@@ -63,6 +78,11 @@ public class dashboard_detalleCita extends javax.swing.JFrame {
                 "ID", "ID CITA", "ID SERVICIO", "PRECIO"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btnInsertarDe.setText("INSERTAR");
@@ -145,24 +165,119 @@ public class dashboard_detalleCita extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+private void cargarComboCitas() {
+        cbxCita.removeAllItems();
+        List<citas> lista = citasDao.listarCitas();
+        for (citas c : lista) {
+            cbxCita.addItem(c.getId_cita() + " - " + c.getFecha() + " " + c.getHora());
+        }
+    }
 
+    private void cargarComboServicios() {
+        cbxServicio.removeAllItems();
+        List<servicio> lista = servicioDao.listarServicio();
+        for (servicio s : lista) {
+            cbxServicio.addItem(s.getId_servi() + " - " + s.getNombre_servi());
+        }
+    }
+
+    private void cargarTabla() {
+        DefaultTableModel modelo = new DefaultTableModel(
+            new Object[0][4],
+            new String[]{"ID", "ID CITA", "ID SERVICIO", "PRECIO"}
+        );
+        List<detalleCita> lista = controller.listarTodos();
+        for (detalleCita d : lista) {
+            modelo.addRow(new Object[]{d.getIdDetalle(), d.getIdCita(), d.getIdServicio(), d.getPrecioCobrado()});
+        }
+        jTable1.setModel(modelo);
+    }
+
+    private int extraerId(Object itemCombo) {
+        String texto = itemCombo.toString();
+        return Integer.parseInt(texto.split(" - ")[0].trim());
+    }
+
+    private void limpiarFormulario() {
+        idSeleccionado = 0;
+        jTextField1.setText("");
+        if (cbxCita.getItemCount() > 0) cbxCita.setSelectedIndex(0);
+        if (cbxServicio.getItemCount() > 0) cbxServicio.setSelectedIndex(0);
+    }
     private void btnActualizarDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDeActionPerformed
-        // TODO add your handling code here:
+    if (idSeleccionado == 0) {
+            JOptionPane.showMessageDialog(this, "Selecciona primero un registro de la tabla");
+            return;
+        }
+        try {
+            detalleCita d = new detalleCita();
+            d.setIdDetalle(idSeleccionado);
+            d.setIdCita(extraerId(cbxCita.getSelectedItem()));
+            d.setIdServicio(extraerId(cbxServicio.getSelectedItem()));
+            d.setPrecioCobrado(Double.parseDouble(jTextField1.getText()));
+            if (controller.guardar(d)) {
+                JOptionPane.showMessageDialog(this, "Registro actualizado correctamente");
+                cargarTabla();
+                limpiarFormulario();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al actualizar");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El precio debe ser un número válido");
+        }    
+// TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarDeActionPerformed
 
     private void btnRegresarDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarDeActionPerformed
-
+new menuOpciones().setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegresarDeActionPerformed
 
     private void btnInsertarDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarDeActionPerformed
-        
+        if (cbxCita.getSelectedItem() == null || cbxServicio.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona una cita y un servicio");
+            return;
+        }
+        try {
+            detalleCita d = new detalleCita();
+            d.setIdCita(extraerId(cbxCita.getSelectedItem()));
+            d.setIdServicio(extraerId(cbxServicio.getSelectedItem()));
+            d.setPrecioCobrado(Double.parseDouble(jTextField1.getText()));
+            if (controller.guardar(d)) {
+                JOptionPane.showMessageDialog(this, "Registro insertado correctamente");
+                cargarTabla();
+                limpiarFormulario();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al insertar");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El precio debe ser un número válido");
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertarDeActionPerformed
 
     private void btnEliminarDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDeActionPerformed
+       if (idSeleccionado == 0) {
+            JOptionPane.showMessageDialog(this, "Selecciona un registro de la tabla");
+            return;
+        }
+        if (controller.eliminar(idSeleccionado)) {
+            JOptionPane.showMessageDialog(this, "Eliminado correctamente");
+            cargarTabla();
+            limpiarFormulario();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarDeActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int fila = jTable1.getSelectedRow();
+        if (fila != -1) {
+            idSeleccionado = (int) jTable1.getValueAt(fila, 0);
+            jTextField1.setText(jTable1.getValueAt(fila, 3).toString());
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

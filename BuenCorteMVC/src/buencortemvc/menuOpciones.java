@@ -86,6 +86,9 @@ public class menuOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionCliActionPerformed
 
     private void btnCRUDDetalleCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCRUDDetalleCitaActionPerformed
+dashboard_detalleCita detalleCita = new dashboard_detalleCita();
+        detalleCita.setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCRUDDetalleCitaActionPerformed
 
